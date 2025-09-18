@@ -10,6 +10,6 @@ export default class IMC {
         return Math.round(this.poid/(this.taille**2))
     }
     display_imc(){
-        console.log(`${this.nom} pese ${this.poid} kg et son imc est ${this.imc_calcul()}`)
+        console.log(`${this.nom} pese ${this.poid}kg mesure ${this.taille}m et son imc est ${this.imc_calcul()}`)
     }
 }
