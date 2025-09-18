@@ -12,6 +12,6 @@ let list = [
   new IMC("J0siane de la Vega",99,1.55)
 ];
 
-for(let i=0;i<list.length-1;i++){
+for(let i=0;i<list.length;i++){
   list[i].display_imc();
 }
