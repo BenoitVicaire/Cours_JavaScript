@@ -25,7 +25,7 @@ export class Pme {
     bilan_comptable(){
         let salaire_total_and_charge=0;
         for(const employe of this.employe_list){
-            salaire_total_and_charge+=((employe.salaire+employe.salaire*employe.charge/100)*employe.mois_paye);
+            salaire_total_and_charge+=((employe.salaire+(employe.salaire*employe.charge/100))*employe.mois_paye);
             
         }
         return (this.revenu-(salaire_total_and_charge+this.frais_fixe+this.frais_achat))
@@ -50,6 +50,6 @@ export class Pme {
                 coupable=employe;
             }
         }
-        console.log(`Compte tenu de l'outrageux salaire de ${coupable.nom} il serait judicieux de restructurer son contrat, en effet chaque année a lui seul il coute ${overpayed+overpayed*coupable.charge}€`)
+        console.log(`Compte tenu de l'outrageux salaire de ${coupable.nom} il serait judicieux de restructurer son contrat, en effet chaque année a lui seul il coute ${overpayed+(overpayed*coupable.charge/100)}€`)
     }        
 }
