@@ -10,10 +10,12 @@ console.log(moto.detect());
 
 console.log(voiture.vitesse);
 console.log(voiture.plusRapide(moto));
-voiture.boost();
+voiture.boost(50);
 console.log(voiture.vitesse);
 console.log(moto);
 console.log(voiture);
 console.log(voiture.plusRapide(moto));
+voiture.boost(-50);
+console.log(voiture);
 
 

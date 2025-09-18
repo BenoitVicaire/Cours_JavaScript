@@ -19,8 +19,8 @@ export default class Vehicule{
         }
     };
 
-    boost(){
-        this.vitesse+=50;
+    boost(vitesse_boost){
+        this.vitesse+=vitesse_boost;
     }
     plusRapide(vehicule){
         if(this.vitesse > vehicule.vitesse){
