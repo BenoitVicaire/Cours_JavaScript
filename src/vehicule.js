@@ -26,8 +26,10 @@ export default class Vehicule{
         if(this.vitesse > vehicule.vitesse){
             return ` ${this.nom} est plus rapide que ${vehicule.nom}`;
             
-        } 
-        else{
+        } else if (this.vitesse == vehicule.vitesse){
+            return ` ${this.nom} est aussi rapide que ${vehicule.nom}`;
+        }
+        else {
             return `${vehicule.nom} est plus rapide que ${this.nom}`;
         }
     }
