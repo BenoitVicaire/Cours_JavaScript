@@ -1,55 +1,35 @@
-export class Employee {
+export class compteBancaire {
     // Constructor
-    constructor(nom,prenom,age,salaire_mensuel,mois_paye,charge){
-        this.nom=nom;
-        this.prenom=prenom;
-        this.age=age;
-        this.salaire=salaire_mensuel;
-        this.mois_paye=mois_paye;
-        this.charge=charge;
+    constructor(owner_name,balance){
+        this.owner_name=owner_name;
+        this.balance=balance;
     }
-    // Methodes
-    
-}
-
-    // Constructor
-export class Pme {
-    constructor(nom,employe_list,revenu,frais_fixe,frais_achat){
-        this.nom=nom;
-        this.employe_list=employe_list;
-        this.revenu=revenu;
-        this.frais_fixe=frais_fixe;
-        this.frais_achat=frais_achat; 
-    }
-    // Methodes
-    bilan_comptable(){
-        let salaire_total_and_charge=0;
-        for(const employe of this.employe_list){
-            salaire_total_and_charge+=((employe.salaire+(employe.salaire*employe.charge/100))*employe.mois_paye);
-            
-        }
-        return (this.revenu-(salaire_total_and_charge+this.frais_fixe+this.frais_achat))
-    }
-    display_bilan(){
-        if (this.bilan_comptable()>0){
-            console.log(`L'entreprise ${this.nom} est en benefice de ${this.bilan_comptable()}`)
-        }
-        if (this.bilan_comptable()==0){
-            console.log(`L'entreprise ${this.nom} est à l'équilibre, mais faudrais pas mettre un sucre de plus dans le café : ${this.bilan_comptable()}`)
-        }
-        if (this.bilan_comptable()<0){
-            console.log(`L'entreprise ${this.nom} est en deficit de ${this.bilan_comptable()} va falloir penser a faire du remaniement`)
+    // Méthode
+    withdraw(amount){
+        if(amount>this.balance){
+            throw new Error("Votre solde n'est pas suffisant pour effectuer cette opération");
+        }else if(amount<=0){
+            throw new Error("Le montant que vous avez selectionné est invalide, veuillez saisir un montant strictement positif");
+        }else{
+            return this.balance-=amount;
         }
     }
-    remaniement(){
-        let overpayed=0;
-        let coupable = null;
-        for(const employe of this.employe_list){
-            if(employe.salaire>overpayed){
-                overpayed=employe.salaire;
-                coupable=employe;
-            }
+    deposit(amount){
+        if(amount<=0){
+            throw new Error("Le montant que vous avez selectionné est invalide, veuillez saisir un montant strictement positif");
+        }else
+        return this.balance+=amount;
+    }
+    transfer(amount,target){
+        if(amount<=0){
+            throw new Error("Le montant que vous avez selectionné est invalide, veuillez saisir un montant strictement positif");
+        }else if(amount>this.balance){
+            throw new Error("Votre solde n'est pas suffisant pour effectuer cette opération")
+        }else if(typeof target =="undefined"){
+            throw new Error("Le beneficiaire du virrement n'existes pas")
+        }else{
+            this.balance-=amount;
+            target.balance+=amount;
         }
-        console.log(`Compte tenu de l'outrageux salaire de ${coupable.nom} il serait judicieux de restructurer son contrat, en effet chaque année a lui seul il coute ${overpayed+(overpayed*coupable.charge/100)}€`)
-    }        
+    }
 }
