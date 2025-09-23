@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ex_06</title>
+    <script type="module" src="/src/main.js" async></script>
+    <title>ex_07</title>
 </head>
 <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <main>
+        <section class="main_container">
+            <div class="account_creation">
+                <input type="text" id="account_name" name="account_name" placeholder="Nom de compte">
+                <button id="bt_create">Créer le compte</button>
+            </div>
+            <div class="operation">
+                <input type="text" id="id_account" name="id_account" placeholder="Beneficiaire">
+                <input type="text" id="id_amount" name="id_amount" placeholder="Montant">
+                <button id="bt_deposit">Deposer</button>
+                <button id="bt_withdraw">Retirer</button>
+            </div>
+            <div class="transfert">
+                <input type="text" id="id_source" name="id_source" placeholder="Compte source"> 
+                <input type="text" id="id_target" name="id_target" placeholder="Compte cible"> 
+                <input type="text" id="id_transfert" name="id_transfert" placeholder="Montant"> 
+                <button id="bt_transfert">Virer</button>
+                
+            </div>
+            <p id="id_message"></p>
+        </section>
+    </main>
 </body>
 </html>
