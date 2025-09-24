@@ -20,7 +20,7 @@ export class compteBancaire {
         }
         this.balance+=amount;
     }
-    transfer(amount,target){
+    transfert(amount,target){
         if(amount<=0){
             throw new Error("Le montant que vous avez selectionné est invalide, veuillez saisir un montant strictement positif");
         }else if(amount>this.balance){
